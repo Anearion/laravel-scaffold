@@ -13,12 +13,12 @@
             </div>
             <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>{{ Auth::user()->name }}</h2>
+                <h2>{{ Auth::user()->name}}</h2>
             </div>
         </div>
         <!-- /menu profile quick info -->
         
-        <br />
+        <br/>
         
         <!-- sidebar menu -->
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
