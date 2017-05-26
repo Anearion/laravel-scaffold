@@ -14,5 +14,10 @@
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/', 'HomeController@index');
-Route::get('/home', 'HomeController@index');
-Route::get('/dash', 'HomeController@index');
+
+
+Route::group(['prefix' => 'admin'], function () {
+  Route::get('/dashboard', 'HomeController@adminDashboard');
+  Route::get('/users', 'AdminController@usersManagement');
+  Route::get('/roles', 'AdminController@rolesManagement');
+});

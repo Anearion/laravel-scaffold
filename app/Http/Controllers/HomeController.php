@@ -23,9 +23,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-      dd(Auth::user()->roles);
+    public function index(){
       return view('home');
+    }
+
+
+    public function adminDashboard(){
+      return view('administration.home');
     }
 }

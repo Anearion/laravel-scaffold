@@ -1,11 +1,11 @@
 <div class="col-md-3 left_col">
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
-            <a href="{{ url('/') }}" class="site_title"><i class="fa fa-paw"></i> <span>Gentellela Alela!</span></a>
+            <a href="{{ url('/') }}" class="site_title"><i class="fa fa-paw"></i> <span>FLA PLATFORM</span></a>
         </div>
-        
+
         <div class="clearfix"></div>
-        
+
         <!-- menu profile quick info -->
         <div class="profile">
             <div class="profile_pic">
@@ -17,31 +17,46 @@
             </div>
         </div>
         <!-- /menu profile quick info -->
-        
+
         <br/>
-        
+
         <!-- sidebar menu -->
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">
+                @role('Admin')
+                <h3>Administration</h3>
+                <ul class="nav side-menu">
+                <li><a><i class="fa fa-home"></i> Amministrazione <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a href="/admin/dashboard"> Dahsboard</a> </li>
+                        <li><a href="/admin/users"> Gestione Utenti</a> </li>
+                        <li><a href="/admin/roles"> Gestione Ruoli</a> </li>
+                    </ul>
+                </li>
+                </ul>
+                @endrole
                 <h3>Group 1</h3>
                 <ul class="nav side-menu">
-                    <li><a><i class="fa fa-home"></i> Multiple link <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav side-menu">
+                        <li><a href="/"> Home</a> </li>
+                    </ul>
+                    <li><a><i class="fa fa-home"></i> Magazzino <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="#">Link 1</a></li>
-                            <li><a href="#">Link 2</a></li>
-                            <li><a href="#">Link 3</a></li>
+                            <li><a href="#">Resoconto</a></li>
+                            <li><a href="#">Gestione Entrate/Uscite</a></li>
+                            <li><a href="#">DDT In Pending</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="javascript:void(0)">
-                            <i class="fa fa-laptop"></i>
-                            One link
-                            <span class="label label-success pull-right">Flag</span>
-                        </a>
+                    <li><a><i class="fa fa-home"></i> Crediti CO2 <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">Home Magazzino</a></li>
+                            <li><a href="#">Crea documenti IN/OUT</a></li>
+                            <li><a href="#">Verifica Entrate/Uscite</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
-            <div class="menu_section">
+            {{--<div class="menu_section">
                 <h3>Group 2</h3>
                 <ul class="nav side-menu">
                     <li>
@@ -69,26 +84,26 @@
                         </ul>
                     </li>
                 </ul>
-            </div>
-        
+            </div>--}}
+
         </div>
         <!-- /sidebar menu -->
-        
+
         <!-- /menu footer buttons -->
-        <div class="sidebar-footer hidden-small">
-            <a data-toggle="tooltip" data-placement="top" title="Settings">
-                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-            </a>
-            <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-            </a>
-            <a data-toggle="tooltip" data-placement="top" title="Lock">
-                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-            </a>
-            <a data-toggle="tooltip" data-placement="top" title="Logout" href="{{ url('/logout') }}">
-                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-            </a>
-        </div>
-        <!-- /menu footer buttons -->
+    {{--<div class="sidebar-footer hidden-small">
+        <a data-toggle="tooltip" data-placement="top" title="Settings">
+            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+        </a>
+        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+        </a>
+        <a data-toggle="tooltip" data-placement="top" title="Lock">
+            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+        </a>
+        <a data-toggle="tooltip" data-placement="top" title="Logout" href="{{ url('/logout') }}">
+            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+        </a>
+    </div>--}}
+    <!-- /menu footer buttons -->
     </div>
 </div>
