@@ -11,13 +11,31 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
-  public function UsersManagement(){
+
+  public function usersManagement(){
     $users = $this->getUserList();
-    return view('administration.users-management')->with('users', $users);
+    $roles = $this->getRoleList();
+
+    return view('administration.users-management')->with('users', $users)->with('roles', $roles);
 
   }
 
-  public function RolesManagement(){
+  public function saveUser(Request $request){
+
+    $data = $request->all();
+    $user = new User();
+    $user->name = $data['name'];
+    $user->email = $data['email'];
+    $user->password = bcrypt($data['password']);
+    $user->save();
+
+    $user->attachRole(Role::find($data['role']));
+
+    return $this->usersManagement();
+
+  }
+
+  public function rolesManagement(){
     return $this->getRoleList();
   }
 
@@ -26,7 +44,14 @@ class AdminController extends Controller
   }
 
   public function getRoleList(){
-    return Role::all();
+
+    $res = Role::all();
+    $roles = array();
+    foreach ($res as $ro){
+      $roles[$ro['id']] = $ro['name'];
+    }
+
+    return $roles;
   }
 
 }

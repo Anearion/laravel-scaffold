@@ -16,8 +16,14 @@ Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/', 'HomeController@index');
 
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () {
   Route::get('/dashboard', 'HomeController@adminDashboard');
+
+
   Route::get('/users', 'AdminController@usersManagement');
+  Route::post('/users', 'AdminController@saveuser');
+
+
+
   Route::get('/roles', 'AdminController@rolesManagement');
 });
