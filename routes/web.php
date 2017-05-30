@@ -11,6 +11,9 @@
 |
 */
 
+use Illuminate\Http\Request;
+use App\Models\Role;
+
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/', 'HomeController@index');
@@ -21,9 +24,15 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () {
 
 
   Route::get('/users', 'AdminController@usersManagement');
-  Route::post('/users', 'AdminController@saveuser');
+  Route::post('/users', 'AdminController@saveUser');
+  Route::put('/users', 'AdminController@editUser');
+  Route::delete('/users', 'AdminController@deleteUser');
+
 
 
 
   Route::get('/roles', 'AdminController@rolesManagement');
+  Route::post('/roles', 'AdminController@saveRole');
+  Route::put('/roles', 'AdminController@editRole');
+  Route::delete('/roles', 'AdminController@deleteRole');
 });
